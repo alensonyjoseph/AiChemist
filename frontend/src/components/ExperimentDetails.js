@@ -1,34 +1,45 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 
-function ExperimentDetails() {
+function ExperimentDetails({ addExperimentDetails }) {
     let { id } = useParams();
-    const navigate = useNavigate(); // added useNavigate
+    const navigate = useNavigate();
 
-    const experiment = {
-        name: 'Experiment ' + id,
-        investigator: 'Investigator ' + id,
-        description: 'This is a detailed description of Experiment ' + id,
-        participants: ['Participant 1', 'Participant 2', 'Participant 3']
-    };
+    // Add new state variables for experiment details
+    const [name, setName] = useState('');
+    const [aim, setAim] = useState('');
+    const [explanation, setExplanation] = useState('');
 
-    // function to handle "Join Experiment" button click
-    const handleJoinClick = () => {
-        navigate(`/experiments/${id}/collaborate`);
+    const handleDetailsSubmit = (e) => {
+        e.preventDefault();
+
+        // Check if addExperimentDetails is a function before calling it
+        if (typeof addExperimentDetails === "function") {
+            // Call the addExperimentDetails function passed as props to store the new details
+            addExperimentDetails(id, { name, aim, explanation });
+
+            // Navigate back to /experiments after submission
+            navigate('/experiments');
+        } else {
+            console.error("addExperimentDetails is not a function");
+        }
     };
 
     return (
         <div className="experiment-details">
-            <h2>{experiment.name}</h2>
-            <h3>Conducted by: {experiment.investigator}</h3>
-            <p>{experiment.description}</p>
-            <h3>Participants:</h3>
-            <ul>
-                {experiment.participants.map((participant, index) => (
-                    <li key={index}>{participant}</li>
-                ))}
-            </ul>
-            <button className="join-experiment" onClick={handleJoinClick}>Join Experiment</button>
+            <h2>Experiment {id}</h2>
+            <form onSubmit={handleDetailsSubmit}>
+                <label>Name:
+                    <input type="text" value={name} onChange={(e) => setName(e.target.value)} />
+                </label>
+                <label>Aim:
+                    <input type="text" value={aim} onChange={(e) => setAim(e.target.value)} />
+                </label>
+                <label>Explanation:
+                    <input type="text" value={explanation} onChange={(e) => setExplanation(e.target.value)} />
+                </label>
+                <button type="submit">Submit</button>
+            </form>
         </div>
     );
 }

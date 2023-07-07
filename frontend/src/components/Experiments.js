@@ -9,21 +9,11 @@ const ExperimentsPage = styled.div`
     padding: 50px;
 `;
 
-function Experiments() {
-    // This data would typically come from an API
-    const experimentsData = [
-        {
-            name: 'Experiment 1',
-            investigator: 'Investigator 1',
-            description: 'This is a description of the experiment.'
-        },
-        // Add more experiment data here...
-    ];
-
+function Experiments({ experimentsData, addExperimentDetails }) {
     return (
         <ExperimentsPage>
             {experimentsData.map((experiment, index) => (
-                <Experiment key={index} experiment={experiment} />
+                <Experiment key={index} experiment={experiment} addExperimentDetails={addExperimentDetails} />
             ))}
         </ExperimentsPage>
     );

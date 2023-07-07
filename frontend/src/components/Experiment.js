@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 
@@ -47,18 +47,42 @@ const ButtonContainer = styled.div`
     justify-content: flex-end;
 `;
 
-function Experiment({ experiment }) {
+const Form = styled.form`
+    display: flex;
+    flex-direction: column;
+`;
+
+function Experiment({ experiment, addExperimentDetails }) {
+    const [showForm, setShowForm] = useState(false);
+    const [name, setName] = useState(experiment.name);
+    const [aim, setAim] = useState('');
+    const [explanation, setExplanation] = useState('');
+
+    const handleFormSubmit = (e) => {
+        e.preventDefault();
+        setShowForm(false);
+        addExperimentDetails(experiment.id, { name, aim, explanation });
+    };
+
     return (
         <ExperimentCard>
-            <ExperimentTitle>{experiment.name}</ExperimentTitle>
+            <ExperimentTitle>{name}</ExperimentTitle>
             <ExperimentInvestigator>{experiment.investigator}</ExperimentInvestigator>
             <ExperimentDescription>{experiment.description}</ExperimentDescription>
             <ButtonContainer>
                 <Link to={`/experiments/${experiment.id}`}>
                     <Button>View Details</Button>
                 </Link>
-                <Button>Join</Button>
+                <Button onClick={() => setShowForm(!showForm)}>Update Details</Button>
             </ButtonContainer>
+            {showForm && (
+                <Form onSubmit={handleFormSubmit}>
+                    <label>Name: <input type="text" value={name} onChange={e => setName(e.target.value)} /></label>
+                    <label>Aim: <input type="text" value={aim} onChange={e => setAim(e.target.value)} /></label>
+                    <label>Explanation: <input type="text" value={explanation} onChange={e => setExplanation(e.target.value)} /></label>
+                    <Button type="submit">Submit</Button>
+                </Form>
+            )}
         </ExperimentCard>
     );
 }
