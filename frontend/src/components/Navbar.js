@@ -1,3 +1,4 @@
+// Navbar.js
 import React from 'react';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
@@ -28,6 +29,7 @@ function Navbar() {
                 <StyledLink to="/">Home</StyledLink>
                 <StyledLink to="/about">About</StyledLink>
                 <StyledLink to="/experiments">Experiments</StyledLink>
+                <StyledLink to="/generative-model">Generative AI Model</StyledLink> {/* new link */}
             </div>
         </Nav>
     );
