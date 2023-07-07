@@ -1,16 +1,20 @@
 import React from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams, useNavigate } from 'react-router-dom';
 
 function ExperimentDetails() {
     let { id } = useParams();
+    const navigate = useNavigate(); // added useNavigate
 
-    // Here, we would fetch the experiment details from the server using the id
-    // For now, we're just using some dummy data
     const experiment = {
         name: 'Experiment ' + id,
         investigator: 'Investigator ' + id,
         description: 'This is a detailed description of Experiment ' + id,
         participants: ['Participant 1', 'Participant 2', 'Participant 3']
+    };
+
+    // function to handle "Join Experiment" button click
+    const handleJoinClick = () => {
+        navigate(`/experiments/${id}/collaborate`);
     };
 
     return (
@@ -24,7 +28,7 @@ function ExperimentDetails() {
                     <li key={index}>{participant}</li>
                 ))}
             </ul>
-            <button className="join-experiment">Join Experiment</button>
+            <button className="join-experiment" onClick={handleJoinClick}>Join Experiment</button>
         </div>
     );
 }
