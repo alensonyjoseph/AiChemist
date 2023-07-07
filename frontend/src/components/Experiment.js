@@ -54,7 +54,7 @@ function Experiment({ experiment }) {
             <ExperimentInvestigator>{experiment.investigator}</ExperimentInvestigator>
             <ExperimentDescription>{experiment.description}</ExperimentDescription>
             <ButtonContainer>
-                <Link to={`/experiments/${experiment.name}`}>
+                <Link to={`/experiments/${experiment.id}`}>
                     <Button>View Details</Button>
                 </Link>
                 <Button>Join</Button>
