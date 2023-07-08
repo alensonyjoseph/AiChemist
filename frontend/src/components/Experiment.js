@@ -1,3 +1,5 @@
+// File name: Experiment.js
+
 import React, { useState } from 'react';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
@@ -19,8 +21,19 @@ const ExperimentInvestigator = styled.h3`
     color: #282c34;
 `;
 
-const ExperimentDescription = styled.p`
+const ExperimentDescription = styled.div`
     color: #282c34;
+`;
+
+const LabelText = styled.span`
+    font-weight: bold;
+    margin-right: 10px;
+`;
+
+const FormLabel = styled.label`
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 10px;
 `;
 
 const Button = styled.button`
@@ -55,20 +68,25 @@ const Form = styled.form`
 function Experiment({ experiment, addExperimentDetails }) {
     const [showForm, setShowForm] = useState(false);
     const [name, setName] = useState(experiment.name);
-    const [aim, setAim] = useState(experiment.aim || ''); // Use experiment aim from state or default to ''
-    const [explanation, setExplanation] = useState(experiment.explanation || ''); // Use experiment explanation from state or default to ''
+    const [investigator, setInvestigator] = useState(experiment.investigator);
+    const [aim, setAim] = useState(experiment.aim || ''); 
+    const [explanation, setExplanation] = useState(experiment.explanation || ''); 
 
     const handleFormSubmit = (e) => {
         e.preventDefault();
-        addExperimentDetails(experiment.id, { name, aim, explanation });
+        addExperimentDetails(experiment.id, { name, investigator, aim, explanation });
         setShowForm(false);
     };
 
     return (
         <ExperimentCard>
             <ExperimentTitle>{name}</ExperimentTitle>
-            <ExperimentInvestigator>{experiment.investigator}</ExperimentInvestigator>
-            <ExperimentDescription>{aim || explanation || experiment.description}</ExperimentDescription>
+            <ExperimentInvestigator>Investigator: {investigator}</ExperimentInvestigator>
+            <ExperimentDescription>
+                <LabelText>Aim:</LabelText> {aim} 
+                <br/>
+                <LabelText>Explanation:</LabelText> {explanation || experiment.description}
+            </ExperimentDescription>
             <ButtonContainer>
                 <Link to={`/experiments/${experiment.id}`}>
                     <Button>View Details</Button>
@@ -77,9 +95,22 @@ function Experiment({ experiment, addExperimentDetails }) {
             </ButtonContainer>
             {showForm && (
                 <Form onSubmit={handleFormSubmit}>
-                    <label>Name: <input type="text" value={name} onChange={e => setName(e.target.value)} /></label>
-                    <label>Aim: <input type="text" value={aim} onChange={e => setAim(e.target.value)} /></label>
-                    <label>Explanation: <input type="text" value={explanation} onChange={e => setExplanation(e.target.value)} /></label>
+                    <FormLabel>
+                        <LabelText>Name:</LabelText>
+                        <input type="text" value={name} onChange={e => setName(e.target.value)} />
+                    </FormLabel>
+                    <FormLabel>
+                        <LabelText>Investigator:</LabelText>
+                        <input type="text" value={investigator} onChange={e => setInvestigator(e.target.value)} />
+                    </FormLabel>
+                    <FormLabel>
+                        <LabelText>Aim:</LabelText>
+                        <input type="text" value={aim} onChange={e => setAim(e.target.value)} />
+                    </FormLabel>
+                    <FormLabel>
+                        <LabelText>Explanation:</LabelText>
+                        <input type="text" value={explanation} onChange={e => setExplanation(e.target.value)} />
+                    </FormLabel>
                     <Button type="submit">Submit</Button>
                 </Form>
             )}
