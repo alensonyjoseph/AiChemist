@@ -43,8 +43,6 @@ Upon starting the application, you will land on the home page. Click the "Start 
 
 The '/about' page provides more information about the platform and its purpose.
 
-## Future
-
 ## Future Plans
 
 1. Develop the Generative AI Model for Drug Discovery: The plan is to implement a generative AI model that can assist in the discovery of new drugs. This feature would provide potential breakthroughs in the field of drug discovery by harnessing the power of AI.
