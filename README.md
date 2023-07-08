@@ -35,3 +35,14 @@ To ensure the functionality of the platform, follow the steps below to run the t
 
 ```bash
 npm test
+```
+
+## Usage
+
+Upon starting the application, you will land on the home page. Click the "Start Exploring" button to view all available experiments. You can then click "View Details" to see more information about a specific experiment, or "Update Details" to edit an experiment's details.
+
+The '/about' page provides more information about the platform and its purpose.
+
+## License
+
+This project is licensed under the MIT License. For more details, see the LICENSE file in the repository.
