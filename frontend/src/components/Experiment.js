@@ -55,20 +55,20 @@ const Form = styled.form`
 function Experiment({ experiment, addExperimentDetails }) {
     const [showForm, setShowForm] = useState(false);
     const [name, setName] = useState(experiment.name);
-    const [aim, setAim] = useState('');
-    const [explanation, setExplanation] = useState('');
+    const [aim, setAim] = useState(experiment.aim || ''); // Use experiment aim from state or default to ''
+    const [explanation, setExplanation] = useState(experiment.explanation || ''); // Use experiment explanation from state or default to ''
 
     const handleFormSubmit = (e) => {
         e.preventDefault();
-        setShowForm(false);
         addExperimentDetails(experiment.id, { name, aim, explanation });
+        setShowForm(false);
     };
 
     return (
         <ExperimentCard>
             <ExperimentTitle>{name}</ExperimentTitle>
             <ExperimentInvestigator>{experiment.investigator}</ExperimentInvestigator>
-            <ExperimentDescription>{experiment.description}</ExperimentDescription>
+            <ExperimentDescription>{aim || explanation || experiment.description}</ExperimentDescription>
             <ButtonContainer>
                 <Link to={`/experiments/${experiment.id}`}>
                     <Button>View Details</Button>
