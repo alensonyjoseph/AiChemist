@@ -71,10 +71,11 @@ function Experiment({ experiment, addExperimentDetails }) {
     const [investigator, setInvestigator] = useState(experiment.investigator);
     const [aim, setAim] = useState(experiment.aim || ''); 
     const [explanation, setExplanation] = useState(experiment.explanation || ''); 
+    const [featured, setFeatured] = useState(experiment.featured || false);
 
     const handleFormSubmit = (e) => {
         e.preventDefault();
-        addExperimentDetails(experiment.id, { name, investigator, aim, explanation });
+        addExperimentDetails(experiment.id, { name, investigator, aim, explanation, featured });
         setShowForm(false);
     };
 
@@ -110,6 +111,10 @@ function Experiment({ experiment, addExperimentDetails }) {
                     <FormLabel>
                         <LabelText>Explanation:</LabelText>
                         <input type="text" value={explanation} onChange={e => setExplanation(e.target.value)} />
+                    </FormLabel>
+                    <FormLabel>
+                        <LabelText>Featured:</LabelText>
+                        <input type="checkbox" checked={featured} onChange={e => setFeatured(e.target.checked)} />
                     </FormLabel>
                     <Button type="submit">Submit</Button>
                 </Form>

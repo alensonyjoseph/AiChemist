@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import { Link } from 'react-router-dom';
 
 const HomePage = styled.div`
     text-align: center;
@@ -38,7 +39,9 @@ function Home() {
         <HomePage>
             <Heading>Welcome to AiChemist</Heading>
             <Subtitle>An interactive platform for collaborative research.</Subtitle>
-            <Button className="start-exploring">Start Exploring</Button>
+            <Link to="/experiments">
+                <Button className="start-exploring">Start Exploring</Button>
+            </Link>
         </HomePage>
     );
 }

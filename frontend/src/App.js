@@ -16,7 +16,8 @@ function App() {
             id: 1,
             name: 'Experiment 1',
             investigator: 'Investigator 1',
-            description: 'This is a description of the experiment.'
+            description: 'This is a description of the experiment.',
+            featured: false, // added new featured attribute
         },
         // Add more experiment data here...
     ]);
