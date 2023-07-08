@@ -1,9 +1,37 @@
-import React, { useState, useEffect } from 'react';
-import { useParams, useNavigate } from 'react-router-dom';
+// File name: ExperimentDetail.js
 
-function ExperimentDetails({ experimentsData, addExperimentDetails }) {
+import React, { useState, useEffect } from 'react';
+import { useParams } from 'react-router-dom';
+import styled from 'styled-components';
+import { Link } from 'react-router-dom';
+
+const DetailCard = styled.div`
+    display: flex;
+    flex-direction: column;
+    border: 1px solid #282c34;
+    padding: 20px;
+    margin-bottom: 20px;
+    width: 70%;
+`;
+
+const DetailTitle = styled.h2`
+    color: #282c34;
+`;
+
+const DetailInvestigator = styled.h3`
+    color: #282c34;
+`;
+
+const DetailAim = styled.p`
+    color: #282c34;
+`;
+
+const DetailExplanation = styled.p`
+    color: #282c34;
+`;
+
+function ExperimentDetail({ experimentsData }) {
     let { id } = useParams();
-    const navigate = useNavigate();
     id = Number(id); // Convert id to number
 
     // Initialize state with details of the current experiment
@@ -13,37 +41,19 @@ function ExperimentDetails({ experimentsData, addExperimentDetails }) {
         setExperiment(experimentsData.find(experiment => experiment.id === id) || {});
     }, [experimentsData, id]);
 
-    const handleDetailsSubmit = (e) => {
-        e.preventDefault();
-
-        // Update the experiment details
-        addExperimentDetails(id, experiment);
-
-        // Navigate back to /experiments after submission
-        navigate('/experiments');
-    };
-
-    const handleInputChange = (e) => {
-        setExperiment({ ...experiment, [e.target.name]: e.target.value });
-    };
+    if (!experiment) {
+        return <p>Error: Experiment not found.</p>;
+    }
 
     return (
-        <div className="experiment-details">
-            <h2>Experiment {id}</h2>
-            <form onSubmit={handleDetailsSubmit}>
-                <label>Name:
-                    <input type="text" name="name" value={experiment.name || ''} onChange={handleInputChange} />
-                </label>
-                <label>Aim:
-                    <input type="text" name="aim" value={experiment.aim || ''} onChange={handleInputChange} />
-                </label>
-                <label>Explanation:
-                    <input type="text" name="explanation" value={experiment.explanation || ''} onChange={handleInputChange} />
-                </label>
-                <button type="submit">Submit</button>
-            </form>
-        </div>
+        <DetailCard>
+            <DetailTitle>{experiment.name}</DetailTitle>
+            <DetailInvestigator>Investigator: {experiment.investigator}</DetailInvestigator>
+            <DetailAim>Aim: {experiment.aim}</DetailAim>
+            <DetailExplanation>Explanation: {experiment.explanation || experiment.description}</DetailExplanation>
+            <Link to={`/experiments`}>Back to experiments</Link>
+        </DetailCard>
     );
 }
 
-export default ExperimentDetails;
+export default ExperimentDetail;
