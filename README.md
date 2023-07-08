@@ -1,5 +1,5 @@
+# AiChemist
 
-AiChemist
 AiChemist is a collaborative platform for scientific research built with React and styled-components. This project serves as an interactive platform where you can view and edit experiments, providing a streamlined way for researchers and collaborators to work together and track their progress.
 
 Project Overview
