@@ -43,6 +43,17 @@ Upon starting the application, you will land on the home page. Click the "Start 
 
 The '/about' page provides more information about the platform and its purpose.
 
+## Future
+
+## Future Plans
+
+1. Develop the Generative AI Model for Drug Discovery: The plan is to implement a generative AI model that can assist in the discovery of new drugs. This feature would provide potential breakthroughs in the field of drug discovery by harnessing the power of AI.
+
+2. Improve the UI and UX: Future updates will focus on improving the user interface and user experience to make the platform more intuitive and enjoyable to use. This includes refining the current features and adding new ones based on user feedback and requirements.
+
+3. Build the Backend: Plans for backend development include creating user profiles, database management, and other server-side functionalities. This will allow for personalized user experiences and efficient data management, providing a robust and scalable application structure.
+
+
 ## License
 
 This project is licensed under the MIT License. For more details, see the LICENSE file in the repository.
