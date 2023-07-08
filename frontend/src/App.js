@@ -39,7 +39,7 @@ function App() {
                     <Route path="/" element={<Home />} />
                     <Route path="/about" element={<About />} /> 
                     <Route path="/experiments" element={<Experiments experimentsData={experimentsData} addExperimentDetails={addExperimentDetails} />} /> 
-                    <Route path="/experiments/:id" element={<ExperimentDetails addExperimentDetails={addExperimentDetails} />} />
+                    <Route path="/experiments/:id" element={<ExperimentDetails experimentsData={experimentsData} addExperimentDetails={addExperimentDetails} />} />
                     <Route path="/experiments/:id/collaborate" element={<ExperimentCollaboration />} />
                     <Route path="/generative-model" element={<GenerativeAIModel />} />
                 </Routes>
