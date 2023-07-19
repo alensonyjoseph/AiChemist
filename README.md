@@ -1,87 +1,81 @@
-NOTE: I'm relatively new to coding, so there might be additional packages or steps you need to follow to set up your environment properly for this project. I appreciate your understanding and cooperation.
+**NOTE**: While I have endeavored to make the setup process as straightforward as possible, you may encounter additional requirements due to the unique configurations of your environment. I appreciate your patience and understanding.
 
-AiChemist
-AiChemist is a collaborative platform for scientific research, crafted using React and styled-components. The platform functions as an interactive hub, enabling users to view and modify experiments. It aims to streamline the collaboration process among researchers, ensuring efficient tracking and sharing of progress.
+# AiChemist
 
-Project Features
-AiChemist boasts several features:
+AiChemist is a collaborative platform for scientific research, designed using React and styled-components. It serves as an interactive hub for users to view and modify experiments, optimizing collaboration among researchers.
 
-A comprehensive list of experiments with details about the investigator and the research.
-Detailed pages for each experiment, granting access to more intricate details and update options.
-Collaboration pages to foster communication and co-operation among users.
-A 'featured' tag to highlight significant experiments.
-Full responsiveness, ensuring usability across various screen sizes.
-Prerequisites
-To get started, ensure you have:
+## Features
 
-Python installed.
-Git set up.
-Node.js and npm ready for use.
-Installation Guide
-Backend
-Follow these instructions for a smooth setup:
+- **Experiment Overview**: Displays a comprehensive list of experiments, including investigator details and experiment descriptions.
+- **Detailed View**: Each experiment has its dedicated page for deeper insights and update options.
+- **Collaboration Hub**: A dedicated space for users to communicate and collaborate.
+- **Feature Tags**: Highlights significant experiments.
+- **Responsive Design**: Ensures optimal viewing across a variety of devices.
 
-1. Clone the Repository:
-bash
-Copy code
-git clone https://github.com/thealensj/AiChemist.git
-cd AiChemist
-2. Backend Setup:
-a. Navigate to the backend directory:
-bash
-Copy code
-cd backend
-b. Create and activate a Python virtual environment:
-bash
-Copy code
-python -m venv myenv
-myenv\Scripts\activate
-c. Install essential Python packages:
-bash
-Copy code
-pip install Flask Flask-CORS transformers
-3. Boot up the Backend:
-bash
-Copy code
-python server.py
-Now, your backend should be up and running on port 5000.
+## Prerequisites
 
-Frontend
-1. Switch to the frontend directory from the AiChemist root directory:
-bash
-Copy code
-cd frontend
-2. Install frontend dependencies:
-bash
-Copy code
-npm install
-3. Launch the Frontend:
-bash
-Copy code
-npm start
-Testing
-To verify the platform's functionality, initiate the tests using:
+1. Python
+2. Git
+3. Node.js and npm
 
-bash
-Copy code
+## Setup and Installation
+
+### Backend
+
+1. **Clone the Repository**:
+    ```bash
+    git clone https://github.com/thealensj/AiChemist.git
+    cd AiChemist
+    ```
+
+2. **Backend Initialization**:
+    - Navigate to the backend directory:
+        ```bash
+        cd backend
+        ```
+    - Set up and activate the virtual environment:
+        ```bash
+        python -m venv myenv
+        myenv\Scripts\activate
+        ```
+    - Install required Python packages:
+        ```bash
+        pip install Flask Flask-CORS transformers
+        ```
+
+3. **Start the Backend**:
+    ```bash
+    python server.py
+    ```
+    The backend should now be running on port 5000.
+
+### Frontend
+
+1. **Transition to the Frontend**:
+    ```bash
+    cd frontend
+    ```
+
+2. **Install Dependencies**:
+    ```bash
+    npm install
+    ```
+
+3. **Run the Frontend**:
+    ```bash
+    npm start
+    ```
+
+## Testing
+
+To verify the application's functionality, run:
+```bash
 npm test
-Usage Guide
-After launching the application, the home page will greet you. Click on "Start Exploring" to inspect the available experiments. Further, the "View Details" option will show more about a chosen experiment, and "Update Details" will let you modify its particulars.
+Usage
+On initiating the application, the landing page provides an overview. "Start Exploring" leads to the experiments. Detailed views and updates are available for each experiment. More about the platform can be found at the /about route.
 
-The /about route offers deeper insights into the platform's ethos and mission.
-
-Roadmap
-Our aspirations for AiChemist's evolution include:
-
-AI-Driven Drug Discovery: We aim to harness the prowess of cutting-edge generative AI models to usher in breakthroughs in drug discovery.
-
-Elevated UI/UX: Future updates will sharpen the user experience by refining existing functionalities and introducing novel ones based on user interactions and feedback.
-
-
-
-3. Build the Backend: Plans for backend development include creating user profiles, database management, and other server-side functionalities. This will allow for personalized user experiences and efficient data management, providing a robust and scalable application structure.
-
-
-## License
-
-This project is licensed under the MIT License. For more details, see the LICENSE file in the repository.
+Future Developments
+AI-Powered Drug Discovery: Implementation of a cutting-edge generative AI model to assist in innovative drug discoveries.
+UI/UX Enhancements: Continuous updates to refine the user interface based on feedback and technological advancements.
+License
+This project falls under the MIT License. For more information, consult the LICENSE file in the repository.
