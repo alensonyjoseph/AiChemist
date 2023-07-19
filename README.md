@@ -71,11 +71,16 @@ AiChemist is a collaborative platform for scientific research, designed using Re
 To verify the application's functionality, run:
 ```bash
 npm test
-Usage
-On initiating the application, the landing page provides an overview. "Start Exploring" leads to the experiments. Detailed views and updates are available for each experiment. More about the platform can be found at the /about route.
+```
 
-Future Developments
-AI-Powered Drug Discovery: Implementation of a cutting-edge generative AI model to assist in innovative drug discoveries.
-UI/UX Enhancements: Continuous updates to refine the user interface based on feedback and technological advancements.
-License
-This project falls under the MIT License. For more information, consult the LICENSE file in the repository.
+## Usage
+After launching the application, the homepage will be your starting point. Navigate using the "Start Exploring" button to see all available experiments. "View Details" gives more information about each experiment, and "Update Details" lets you modify their descriptions.
+
+For a deeper dive into the platform, visit the /about route.
+
+## Roadmap
+1. AI-Driven Drug Discovery: Our goal is to leverage advanced generative AI models to revolutionize drug discovery processes.
+2. UI/UX Improvements: We aim to continuously enhance the user experience based on feedback and the latest design principles.
+
+## License
+This project is licensed under the MIT License. For comprehensive details, please see the LICENSE file in the repository.
