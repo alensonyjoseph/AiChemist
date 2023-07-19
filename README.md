@@ -30,6 +30,7 @@ Follow these steps to set up and run the AiChemist project:
 git clone https://github.com/thealensj/AiChemist.git
 cd AiChemist
     ```
+
 2. Set Up the Backend:
 a. Navigate to the backend directory:
 ```bash
