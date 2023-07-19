@@ -1,0 +1,9 @@
+# Virtual environment
+myenv/
+
+# Large files (you can extend this list based on your needs)
+myenv\Lib\site-packages\tensorflow\python\_pywrap_tensorflow_internal.pyd
+myenv\Lib\site-packages\torch\lib\dnnl.lib
+myenv\Lib\site-packages\torch\lib\torch_cpu.dll
+myenv\Lib\site-packages\clang\native\libclang.dll
+myenv\Lib\site-packages\tensorflow\python\_pywrap_tensorflow_internal.lib
