@@ -42,8 +42,12 @@ AiChemist is a collaborative platform for scientific research, designed using Re
         ```bash
         pip install Flask Flask-CORS transformers
         ```
+3. **Install PyTorch**:
+    ```bash
+    pip install torch torchvision
+    ```
 
-3. **Start the Backend**:
+4. **Start the Backend**:
     ```bash
     python server.py
     ```
