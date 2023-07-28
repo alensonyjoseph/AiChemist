@@ -1,3 +1,4 @@
+// src/components/GenerativeAIModel.js
 import React, { useState } from 'react';
 import axios from 'axios';
 
@@ -11,16 +12,18 @@ function GenerativeAIModel() {
         setIsLoading(true);
         setError(""); 
 
-        axios.post('http://localhost:5000/generate-smile', {
-            smile: smile
-        })
+        axios.post('http://localhost:5000/generate-smile', { smile: smile })
         .then(response => {
             setIsLoading(false);
-            setResults(response.data);
+            if (response.data.error) {
+                setError(response.data.error);
+            } else {
+                setResults(response.data);
+            }
         })
         .catch(error => {
             setIsLoading(false);
-            setError(`Error: ${error}`);
+            setError(`Error: ${error.message}`);
         });
     };
 

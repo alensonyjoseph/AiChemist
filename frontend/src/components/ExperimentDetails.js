@@ -1,9 +1,9 @@
-// File name: ExperimentDetail.js
-
+// src/components/ExperimentDetail.js
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
+import axios from 'axios';
 
 const DetailCard = styled.div`
     display: flex;
@@ -30,19 +30,23 @@ const DetailExplanation = styled.p`
     color: #282c34;
 `;
 
-function ExperimentDetail({ experimentsData }) {
+function ExperimentDetail() {
     let { id } = useParams();
-    id = Number(id); // Convert id to number
 
-    // Initialize state with details of the current experiment
-    const [experiment, setExperiment] = useState(experimentsData.find(experiment => experiment.id === id) || {});
+    const [experiment, setExperiment] = useState(null);
 
     useEffect(() => {
-        setExperiment(experimentsData.find(experiment => experiment.id === id) || {});
-    }, [experimentsData, id]);
+        axios.get(`http://localhost:5000/experiments/${id}`)
+        .then(response => {
+            setExperiment(response.data);
+        })
+        .catch(error => {
+            console.error(`Error fetching experiment with ID: ${id}`, error);
+        });
+    }, [id]);
 
     if (!experiment) {
-        return <p>Error: Experiment not found.</p>;
+        return <p>Loading...</p>;
     }
 
     return (
