@@ -42,15 +42,15 @@ AiChemist is a collaborative platform for scientific research, designed using Re
         ```bash
         pip install Flask Flask-CORS transformers
         ```
-      Install PyTorch:
+    - Install PyTorch:
         ```bash
         pip install torch torchvision
         ```
-      Install SQLAlchemy:
+    - Install SQLAlchemy:
         ```bash
         pip install sqlalchemy
         ```
-      Install PyMySQL:
+    - Install PyMySQL:
        ```bash
        pip install pymysql 
        ```
