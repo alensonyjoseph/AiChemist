@@ -11,7 +11,9 @@ AiChemist is a collaborative platform for scientific research, designed using Re
 - **Collaboration Hub**: A dedicated space for users to communicate and collaborate.
 - **Feature Tags**: Highlights significant experiments.
 
+
 [![Watch the video](https://img.youtube.com/vi/mLenIYlwTMk/maxresdefault.jpg)](https://www.youtube.com/watch?v=mLenIYlwTMk)
+
 
 ## Prerequisites
 
