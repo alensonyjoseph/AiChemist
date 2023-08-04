@@ -1,4 +1,4 @@
-**NOTE**: While I have endeavored to make the setup process as straightforward as possible, you may encounter additional requirements due to the unique configurations of your environment. I appreciate your patience and understanding.
+**NOTE**: While I have endeavored to make the setup process as straightforward as possible, you may encounter additional requirements due to the unique configurations of your environment. I request you to make necessary changes such as installation of packages amngest other things that may not be mentioned below as you proceed to clone this project. 
 
 # AiChemist
 
@@ -42,12 +42,20 @@ AiChemist is a collaborative platform for scientific research, designed using Re
         ```bash
         pip install Flask Flask-CORS transformers
         ```
-3. **Install PyTorch**:
-    ```bash
-    pip install torch torchvision
-    ```
+      Install PyTorch:
+        ```bash
+        pip install torch torchvision
+        ```
+      Install SQLAlchemy:
+        ```bash
+        pip install sqlalchemy
+        ```
+      Install PyMySQL:
+       ```bash
+       pip install pymysql 
+       ```
 
-4. **Start the Backend**:
+3. **Start the Backend**:
     ```bash
     python server.py
     ```
