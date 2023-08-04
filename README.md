@@ -2,7 +2,7 @@
 
 # AiChemist
 
-AiChemist is a collaborative platform for scientific research, designed using React and styled-components. It serves as an interactive hub for users to view and modify experiments, optimizing collaboration among researchers.
+AiChemist is a collaborative platform for scientific research, designed using React, TiDB, Flask, Generative AI and others. It serves as an interactive hub for researchers to view, modify and collaborate on experiments. 
 
 ## Features
 
@@ -10,7 +10,8 @@ AiChemist is a collaborative platform for scientific research, designed using Re
 - **Detailed View**: Each experiment has its dedicated page for deeper insights and update options.
 - **Collaboration Hub**: A dedicated space for users to communicate and collaborate.
 - **Feature Tags**: Highlights significant experiments.
-- **Responsive Design**: Ensures optimal viewing across a variety of devices.
+
+[![Watch the video](https://img.youtube.com/vi/mLenIYlwTMk/maxresdefault.jpg)](https://www.youtube.com/watch?v=mLenIYlwTMk)
 
 ## Prerequisites
 
@@ -65,6 +66,7 @@ AiChemist is a collaborative platform for scientific research, designed using Re
 
 1. **Transition to the Frontend**:
     ```bash
+    cd ..
     cd frontend
     ```
 
@@ -85,14 +87,10 @@ To verify the application's functionality, run:
 npm test
 ```
 
-## Usage
-After launching the application, the homepage will be your starting point. Navigate using the "Start Exploring" button to see all available experiments. "View Details" gives more information about each experiment, and "Update Details" lets you modify their descriptions.
-
-For a deeper dive into the platform, visit the /about route.
-
 ## Roadmap
-1. AI-Driven Drug Discovery: Our goal is to leverage advanced generative AI models to revolutionize drug discovery processes.
-2. UI/UX Improvements: We aim to continuously enhance the user experience based on feedback and the latest design principles.
+1. Profile Creation: Developing user registration to allow individual researchers to create their own profiles.
+2. Collaboration Platform: Developing tools to enable collaboration between various profiles. 
+3. Generative AI Model: Developing in-house model to replace the present open source model for SMILES generation. 
 
 ## License
 This project is licensed under the MIT License. For comprehensive details, please see the LICENSE file in the repository.
