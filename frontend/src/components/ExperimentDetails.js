@@ -1,38 +1,11 @@
-// src/components/ExperimentDetail.js
+// ExperimentDetail.js
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
-import styled from 'styled-components';
-import { Link } from 'react-router-dom';
 import axios from 'axios';
-
-const DetailCard = styled.div`
-    display: flex;
-    flex-direction: column;
-    border: 1px solid #282c34;
-    padding: 20px;
-    margin-bottom: 20px;
-    width: 70%;
-`;
-
-const DetailTitle = styled.h2`
-    color: #282c34;
-`;
-
-const DetailInvestigator = styled.h3`
-    color: #282c34;
-`;
-
-const DetailAim = styled.p`
-    color: #282c34;
-`;
-
-const DetailExplanation = styled.p`
-    color: #282c34;
-`;
+import './ExperimentDetail.css'; // Importing CSS file
 
 function ExperimentDetail() {
     let { id } = useParams();
-
     const [experiment, setExperiment] = useState(null);
 
     useEffect(() => {
@@ -45,18 +18,34 @@ function ExperimentDetail() {
         });
     }, [id]);
 
-    if (!experiment) {
-        return <p>Loading...</p>;
-    }
-
     return (
-        <DetailCard>
-            <DetailTitle>{experiment.name}</DetailTitle>
-            <DetailInvestigator>Investigator: {experiment.investigator}</DetailInvestigator>
-            <DetailAim>Aim: {experiment.aim}</DetailAim>
-            <DetailExplanation>Explanation: {experiment.explanation || experiment.description}</DetailExplanation>
-            <Link to={`/experiments`}>Back to experiments</Link>
-        </DetailCard>
+        <div>
+            <h2>Experiment Details</h2>
+            <table className="experiment-details-table">
+                <thead>
+                    <tr>
+                        <th className="name-column">Name</th>
+                        <th className="investigator-column">Investigator</th>
+                        <th className="aim-column">Aim</th>
+                        <th className="explanation-column">Explanation</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {experiment ? (
+                        <tr>
+                            <td>{experiment.name}</td>
+                            <td>{experiment.investigator}</td>
+                            <td>{experiment.aim}</td>
+                            <td>{experiment.explanation || experiment.description}</td>
+                        </tr>
+                    ) : (
+                        <tr>
+                            <td colSpan="4">No experiment details available</td>
+                        </tr>
+                    )}
+                </tbody>
+            </table>
+        </div>
     );
 }
 

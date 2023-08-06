@@ -1,0 +1,28 @@
+.experiment-details-table {
+    width: 100%;
+    border-collapse: collapse;
+    border: 1px solid #282c34;
+}
+
+.experiment-details-table th,
+.experiment-details-table td {
+    border: 1px solid #282c34;
+    padding: 10px;
+    text-align: left;
+}
+
+.name-column {
+    width: 10%;
+}
+
+.investigator-column {
+    width: 15%;
+}
+
+.aim-column {
+    width: 25%;
+}
+
+.explanation-column {
+    width: 50%;
+}
