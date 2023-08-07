@@ -3,6 +3,8 @@ from flask_cors import CORS
 from transformers import pipeline
 from database import create_tables, insert_compound, get_all_compounds, update_compound_description, delete_compound
 
+# Import new functions for experiments, lab notebook entries, and discussion messages as needed
+
 app = Flask(__name__)
 CORS(app)
 
@@ -18,10 +20,8 @@ def generate_smile():
         data = request.get_json()
         smile = data.get('smile', '')
         result = fill_mask(smile)
-
         description = "Generated using Generative AI Model"
         insert_compound(smile, description)
-
         return jsonify(result)
     except Exception as e:
         return jsonify({"error": str(e)})
@@ -42,6 +42,8 @@ def update_description(compound_id):
 def delete_single_compound(compound_id):
     delete_compound(compound_id)
     return jsonify({"message": "Compound deleted successfully!"})
+
+# You can add new routes for handling experiments, lab notebook entries, and discussion messages here.
 
 if __name__ == "__main__":
     create_tables()

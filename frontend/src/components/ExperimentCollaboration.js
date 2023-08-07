@@ -1,4 +1,40 @@
 import React, { useState } from 'react';
+import styled from 'styled-components';
+
+const CollaborationContainer = styled.div`
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+`;
+
+const CollaborationSection = styled.div`
+    border: 1px solid #282c34;
+    padding: 20px;
+`;
+
+const CollaborationTitle = styled.h2`
+    color: #282c34;
+`;
+
+const CollaborationForm = styled.form`
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+`;
+
+const CollaborationButton = styled.button`
+    color: white;
+    background-color: #282c34;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    transition-duration: 0.4s;
+
+    &:hover {
+        background-color: #61dafb;
+        color: black;
+    }
+`;
 
 const ExperimentCollaboration = () => {
     const [notebookEntry, setNotebookEntry] = useState('');
@@ -19,35 +55,35 @@ const ExperimentCollaboration = () => {
     };
 
     return (
-        <div className="experiment-collaboration">
-            <div className="lab-notebook">
-                <h2>Lab Notebook</h2>
-                <form onSubmit={handleNotebookSubmit}>
+        <CollaborationContainer className="experiment-collaboration">
+            <CollaborationSection className="lab-notebook">
+                <CollaborationTitle>Lab Notebook</CollaborationTitle>
+                <CollaborationForm onSubmit={handleNotebookSubmit}>
                     <textarea
                         value={notebookEntry}
                         onChange={(e) => setNotebookEntry(e.target.value)}
                     />
-                    <button type="submit">Submit</button>
-                </form>
+                    <CollaborationButton type="submit">Submit</CollaborationButton>
+                </CollaborationForm>
                 {notebookEntries.map((entry, index) => (
                     <p key={index}>{entry}</p>
                 ))}
-            </div>
-            <div className="discussion">
-                <h2>Discussion</h2>
-                <form onSubmit={handleDiscussionSubmit}>
+            </CollaborationSection>
+            <CollaborationSection className="discussion">
+                <CollaborationTitle>Discussion</CollaborationTitle>
+                <CollaborationForm onSubmit={handleDiscussionSubmit}>
                     <input
                         type="text"
                         value={discussionMessage}
                         onChange={(e) => setDiscussionMessage(e.target.value)}
                     />
-                    <button type="submit">Send</button>
-                </form>
+                    <CollaborationButton type="submit">Send</CollaborationButton>
+                </CollaborationForm>
                 {discussionMessages.map((message, index) => (
                     <p key={index}>{message}</p>
                 ))}
-            </div>
-        </div>
+            </CollaborationSection>
+        </CollaborationContainer>
     );
 };
 
